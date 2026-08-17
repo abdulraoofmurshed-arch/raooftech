@@ -42,8 +42,8 @@ export default function Chat() {
         {
           message: userMessage,
           sender: "user",
-        },
-      ]);
+        }
+      ] as any);
 
     if (error) {
       console.error("Chat error:", error);

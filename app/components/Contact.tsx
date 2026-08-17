@@ -37,8 +37,8 @@ export default function Contact() {
           email,
           subject,
           message,
-        },
-      ]);
+        }
+      ] as any);
 
     if (supabaseError) {
       console.error("Supabase Error:", supabaseError);
