@@ -17,15 +17,15 @@ export default function AdminDashboard() {
 
     async function checkUser() {
       try {
-        const {
-          data: { user },
-          error,
-        } = await supabase.auth.getUser();
+        const { data, error } = await supabase.auth.getSession();
 
-        if (error || !user) {
-          router.replace("/admin/login");
-          return;
-        }
+console.log("SESSION:", data.session);
+console.log("AUTH ERROR:", error);
+
+if (!data.session) {
+  router.replace("/admin/login");
+  return;
+}
 
         if (mounted) {
           setChecking(false);
