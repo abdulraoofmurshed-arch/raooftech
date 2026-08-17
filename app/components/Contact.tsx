@@ -30,15 +30,13 @@ export default function Contact() {
     }
 
     const { error: supabaseError } = await supabase
-      .from("contact_messages")
-      .insert([
-        {
-          name,
-          email,
-          subject,
-          message,
-        }
-      ] as any);
+  .from("contact_messages")
+  .insert({
+    name,
+    email,
+    subject,
+    message,
+  } as never);
 
     if (supabaseError) {
       console.error("Supabase Error:", supabaseError);

@@ -37,13 +37,11 @@ export default function Chat() {
     setLoading(true);
 
     const { error } = await supabase
-      .from("chat_messages")
-      .insert([
-        {
-          message: userMessage,
-          sender: "user",
-        }
-      ] as any);
+  .from("chat_messages")
+  .insert({
+    message: userMessage,
+    sender: "user",
+  } as never);
 
     if (error) {
       console.error("Chat error:", error);
